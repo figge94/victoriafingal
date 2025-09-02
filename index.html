@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="sv">
+<html lang="sv" class="scroll-smooth">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -7,10 +7,8 @@
     <meta
       name="description"
       content="Portfölj för Victoria Fingal: webbutvecklare och designer i Sverige. Snabba, tillgängliga och användarvänliga webbupplevelser." />
-    <link rel="stylesheet" href="style.css" />
     <link rel="icon" href="/favicon.ico" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-    <link rel="manifest" href="/site.webmanifest" />
     <meta property="og:title" content="Victoria Fingal – Webbutvecklare" />
     <meta
       property="og:description"
@@ -19,86 +17,107 @@
     <meta property="og:image" content="/og-image.jpg" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="color-scheme" content="light dark" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script
+      type="module"
+      src="https://cdn.jsdelivr.net/npm/@tailwindplus/elements@1"></script>
+    <link rel="stylesheet" href="style.css" />
   </head>
-  <body>
-    <a class="skip" href="#innehall">Hoppa till innehåll</a>
-
-    <div class="container">
-      <header>
-        <strong aria-label="Varumärke">Victoria Fingal</strong>
-
-        <button
-          class="nav-toggle"
-          aria-label="Öppna meny"
-          aria-expanded="false"
-          aria-controls="huvudnav">
-          ☰
-        </button>
-
-        <nav id="huvudnav" aria-label="Huvudnavigering">
+  <body class="bg-white text-gray-900 antialiased">
+    <div class="mx-auto max-w-5xl">
+      <header class="flex items-center justify-between py-6 px-5">
+        <strong class="text-lg">Victoria Fingal</strong>
+        <nav
+          id="huvudnav"
+          class="hidden md:flex gap-6"
+          aria-label="Huvudnavigering">
           <a href="#om">Om</a>
           <a href="#projekt">Projekt</a>
           <a href="#kompetens">Kompetens</a>
           <a href="#kontakt">Kontakt</a>
         </nav>
+        <button
+          id="navToggle"
+          class="md:hidden text-2xl p-3 hover:bg-sky-100 focus:outline-none focus:ring focus:ring-sky-300"
+          aria-label="Öppna meny"
+          aria-expanded="false"
+          aria-controls="huvudnav">
+          ☰
+        </button>
       </header>
-
-      <main id="innehall">
+      <div class="px-4">
         <!-- Hero -->
-        <section class="hero" id="om" aria-labelledby="om-mig-titel">
-          <h1>Webbutvecklare & designer</h1>
-          <p class="tagline">
+        <section id="om" class="py-16">
+          <h1 class="text-3xl md:text-5xl font-semibold tracking-tight">
+            Webbutvecklare & designer
+          </h1>
+          <p class="mt-4 text-lg text-gray-600 max-w-2xl">
             Skapar snabba, tillgängliga och användarvänliga webbupplevelser med
             fokus på ren kod, god UX och mätbar prestanda.
           </p>
-          <a class="cta" href="#kontakt">Kontakta mig</a>
+          <a
+            class="inline-block mt-6 rounded-lg px-5 py-2 bg-gradient-to-r from-blue-600 to-emerald-500 text-white border-transparent hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-600"
+            href="#kontakt"
+            >Kontakta mig</a
+          >
         </section>
 
         <!-- Om mig -->
-        <section aria-labelledby="om-mig-titel">
-          <h2 id="om-mig-titel" class="section-title">Om mig</h2>
-          <p>
-            Jag heter Victoria Fingal och bygger moderna, prestandaoptimerade
-            webbsidor och appar. Jag trivs i gränslandet mellan teknik och
-            design och brinner för tillgänglighet, responsiv design och smarta
-            användarupplevelser.
-          </p>
-          <p>
-            Utöver utveckling har jag ett stort intresse för
-            <strong>fotografering</strong>, vilket bidrar till min känsla för
-            estetik och visuella detaljer i design.
-          </p>
+        <section class="py-12">
+          <div class="mt-6 max-w-2xl space-y-4">
+            <h2 class="text-2xl font-semibold section-title">Om mig</h2>
+            <p>
+              Jag heter Victoria Fingal och bygger moderna, prestandaoptimerade
+              webbsidor och appar. Jag trivs i gränslandet mellan teknik och
+              design och brinner för tillgänglighet, responsiv design och smarta
+              användarupplevelser.
+            </p>
+            <p>
+              Utöver utveckling har jag ett stort intresse för
+              <strong>fotografering</strong>, vilket bidrar till min känsla för
+              estetik och visuella detaljer i design.
+            </p>
+          </div>
         </section>
 
         <!-- Projekt -->
-        <section id="projekt" aria-labelledby="projekt-titel">
-          <h2 id="projekt-titel" class="section-title">Projekt</h2>
+        <section id="projekt" class="py-12">
+          <h2 class="text-2xl font-semibold section-title">Projekt</h2>
 
-          <div class="grid">
+          <div class="mt-6 grid gap-6 sm:grid-cols-2">
             <!-- CleanSpace -->
-            <article class="card project" aria-labelledby="proj-cleanspace">
-              <header class="project__head">
-                <h3 id="proj-cleanspace">CleanSpace</h3>
-                <span class="project__year">2025</span>
-              </header>
-              <p>
+            <article
+              class="card project flex flex-col rounded-xl border p-6 shadow-sm"
+              aria-labelledby="proj-cleanspace">
+              <div class="flex items-start justify-between">
+                <h3 class="text-lg font-medium">CleanSpace</h3>
+                <span class="text-sm text-gray-500">2025</span>
+              </div>
+              <p class="mt-3 text-gray-700">
                 Mobilapp som hjälper användare att rensa och organisera
                 garderoben. Full CRUD, favoriter, statistik, tips och
-                onboarding. Kopplad till eget Node-API.
+                onboarding.
               </p>
-              <ul class="badges" aria-label="Tekniker">
-                <li class="badge">React Native</li>
-                <li class="badge">Expo</li>
-                <li class="badge">Node.js</li>
-                <li class="badge">MongoDB</li>
+              <ul class="mt-4 flex flex-wrap gap-2" aria-label="Tekniker">
+                <li class="px-2 py-1 text-xs rounded-full bg-gray-100">
+                  React Native
+                </li>
+                <li class="px-2 py-1 text-xs rounded-full bg-gray-100">Expo</li>
+                <li class="px-2 py-1 text-xs rounded-full bg-gray-100">
+                  Node.js
+                </li>
+                <li class="px-2 py-1 text-xs rounded-full bg-gray-100">
+                  MongoDB
+                </li>
               </ul>
-              <div class="divider" aria-hidden="true"></div>
-              <div class="project__links" style="margin-top: auto">
+
+              <div class="mt-6 pt-4 border-t">
                 <a
+                  class="text-sm font-medium text-blue-600 hover:underline"
                   href="https://github.com/figge94/CleanSpace"
                   target="_blank"
                   rel="noopener"
-                  >GitHub</a
+                  >GitHub →</a
                 >
               </div>
             </article>
@@ -106,96 +125,147 @@
         </section>
 
         <!-- Kompetens (kompakt card) -->
-        <section id="kompetens" aria-labelledby="kompetens-titel">
-          <h2 id="kompetens-titel" class="section-title">Kompetens</h2>
+        <section id="kompetens" class="py-12">
+          <h2 class="text-2xl font-semibold section-title">Kompetens</h2>
 
-          <div
-            class="card card--compact"
-            aria-describedby="kompetens-beskrivning">
-            <p id="kompetens-beskrivning" class="visually-hidden">
-              Översikt över kompetenser grupperat på frontend, backend, verktyg,
-              design och språk.
-            </p>
-
-            <h3>Frontend</h3>
-            <div class="skills">
-              <span class="chip">HTML • CSS</span>
-              <span class="chip">JavaScript • TypeScript</span>
-              <span class="chip">Angular • Vue • React</span>
-              <span class="chip">Tailwind • Bootstrap</span>
-              <span class="chip">Responsiv design • SEO</span>
+          <div class="card mt-6 space-y-6 rounded-xl border p-6">
+            <div>
+              <h3 class="font-medium">Frontend</h3>
+              <div class="mt-2 flex flex-wrap gap-2">
+                <span class="px-2 py-1 text-xs rounded bg-gray-100"
+                  >HTML • CSS</span
+                >
+                <span class="px-2 py-1 text-xs rounded bg-gray-100"
+                  >JavaScript • TypeScript</span
+                >
+                <span class="px-2 py-1 text-xs rounded bg-gray-100"
+                  >Angular • Vue • React</span
+                >
+                <span class="px-2 py-1 text-xs rounded bg-gray-100"
+                  >Tailwind • Bootstrap</span
+                >
+                <span class="px-2 py-1 text-xs rounded bg-gray-100"
+                  >Responsiv design • SEO</span
+                >
+              </div>
             </div>
 
-            <h3>Backend & API:er</h3>
-            <div class="skills">
-              <span class="chip">ASP.NET Core • PHP</span>
-              <span class="chip">Node.js • Express</span>
-              <span class="chip">REST-API:er • JWT</span>
-              <span class="chip">MongoDB • SQL</span>
+            <div>
+              <h3 class="font-medium">Backend & API:er</h3>
+              <div class="mt-2 flex flex-wrap gap-2">
+                <span class="px-2 py-1 text-xs rounded bg-gray-100"
+                  >ASP.NET Core • PHP</span
+                >
+                <span class="px-2 py-1 text-xs rounded bg-gray-100"
+                  >Node.js • Express</span
+                >
+                <span class="px-2 py-1 text-xs rounded bg-gray-100"
+                  >REST • JWT</span
+                >
+                <span class="px-2 py-1 text-xs rounded bg-gray-100"
+                  >MongoDB • SQL</span
+                >
+              </div>
             </div>
-
-            <h3>Verktyg & miljöer</h3>
-            <div class="skills">
-              <span class="chip">GitHub</span>
-              <span class="chip">Terminal (Linux)</span>
-              <span class="chip">Visual Studio Code</span>
-              <span class="chip">Android Studio</span>
-              <span class="chip">VirtualBox</span>
-              <span class="chip">WordPress</span>
+            <div>
+              <h3 class="font-medium">Verktyg & miljöer</h3>
+              <div class="mt-2 flex flex-wrap gap-2">
+                <span class="px-2 py-1 text-xs rounded bg-gray-100"
+                  >GitHub</span
+                >
+                <span class="px-2 py-1 text-xs rounded bg-gray-100"
+                  >Terminal (Linux)</span
+                >
+                <span class="px-2 py-1 text-xs rounded bg-gray-100"
+                  >VS Code</span
+                >
+                <span class="px-2 py-1 text-xs rounded bg-gray-100"
+                  >Android Studio</span
+                >
+                <span class="px-2 py-1 text-xs rounded bg-gray-100"
+                  >VirtualBox</span
+                >
+                <span class="px-2 py-1 text-xs rounded bg-gray-100"
+                  >WordPress</span
+                >
+              </div>
             </div>
-
-            <h3>Design & samarbete</h3>
-            <div class="skills">
-              <span class="chip">Figma</span>
-              <span class="chip">Mural</span>
+            <div>
+              <h3 class="font-medium">Design & samarbete</h3>
+              <div class="mt-2 flex flex-wrap gap-2">
+                <span class="px-2 py-1 text-xs rounded bg-gray-100">Figma</span>
+                <span class="px-2 py-1 text-xs rounded bg-gray-100">Mural</span>
+              </div>
             </div>
-
-            <h3>Språk</h3>
-            <div class="skills">
-              <span class="chip">Svenska (modersmål)</span>
-              <span class="chip">Engelska (flytande)</span>
+            <div>
+              <h3 class="font-medium">Språk</h3>
+              <div class="mt-2 flex flex-wrap gap-2">
+                <span class="px-2 py-1 text-xs rounded bg-gray-100"
+                  >Svenska (modersmål)</span
+                >
+                <span class="px-2 py-1 text-xs rounded bg-gray-100"
+                  >Engelska (flytande)</span
+                >
+              </div>
             </div>
           </div>
         </section>
 
         <!-- Kontakt -->
-        <section id="kontakt" aria-labelledby="kontakt-titel">
-          <h2 id="kontakt-titel" class="section-title">Kontakt</h2>
+        <section id="kontakt" class="py-12">
+          <h2 class="text-2xl font-semibold section-title">Kontakt</h2>
 
-          <div class="contact-card">
-            <div class="contact-info">
-              <h3>Hör av dig</h3>
-              <p>Öppen för frilans/uppdrag, snabb återkoppling.</p>
+          <div
+            class="card mt-6 grid gap-6 md:grid-cols-2 rounded-xl border p-6">
+            <div>
+              <h3 class="font-medium">Hör av dig</h3>
+              <p class="mt-1 text-gray-700">
+                Öppen för frilans/uppdrag, snabb återkoppling.
+              </p>
             </div>
 
-            <div class="contact-actions">
+            <div
+              class="flex flex-col gap-3 md:flex-row md:justify-end md:gap-2">
+              <!-- E-post -->
               <a
-                class="btn btn--email"
+                class="inline-flex items-center gap-2 rounded-lg px-4 py-2 bg-gradient-to-r from-blue-600 to-emerald-500 text-white border-transparent hover:opacity-90"
                 href="mailto:victoriafingal@hotmail.se"
                 aria-label="Skicka e-post">
-                <svg viewBox="0 0 24 24" aria-hidden="true">
+                <svg
+                  class="w-5 h-5 fill-current"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true">
                   <path
                     d="M4 6h16a2 2 0 0 1 2 2v.4l-10 6.25L2 8.4V8a2 2 0 0 1 2-2Zm0 4.6 8 5 8-5V16a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2Z" />
                 </svg>
                 E-post
               </a>
+              <!-- GitHub (mörk bakgrund + vit ikon/text) -->
               <a
-                class="btn btn--github"
+                class="inline-flex items-center gap-2 rounded-lg border px-4 py-2 bg-gray-900 text-white border-gray-900 hover:bg-gray-800"
                 href="https://github.com/figge94"
                 target="_blank"
                 rel="noopener">
-                <svg viewBox="0 0 24 24" aria-hidden="true">
+                <svg
+                  class="w-5 h-5 fill-current"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true">
                   <path
                     d="M12 .5a12 12 0 0 0-3.79 23.4c.6.1.82-.26.82-.58v-2.02c-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.35-1.76-1.35-1.76-1.11-.76.09-.75.09-.75 1.23.09 1.87 1.26 1.87 1.26 1.09 1.86 2.86 1.32 3.56 1.01.11-.8.43-1.33.79-1.64-2.67-.3-5.47-1.34-5.47-5.97 0-1.32.47-2.39 1.24-3.23-.12-.3-.54-1.52.12-3.17 0 0 1.01-.32 3.3 1.23.96-.27 1.99-.4 3.01-.4s2.05.14 3.01.4c2.29-1.55 3.3-1.23 3.3-1.23.66 1.65.24 2.87.12 3.17.77.84 1.24 1.91 1.24 3.23 0 4.64-2.8 5.66-5.48 5.96.44.38.84 1.12.84 2.26v3.35c0 .31.21.68.83.57A12 12 0 0 0 12 .5Z" />
                 </svg>
                 GitHub
               </a>
+
+              <!-- LinkedIn (blå bakgrund + vit ikon/text) -->
               <a
-                class="btn btn--linkedin"
+                class="inline-flex items-center gap-2 rounded-lg border px-4 py-2 bg-[#0a66c2] text-white border-[#0a66c2] hover:bg-[#0a66c2]/90"
                 href="https://www.linkedin.com/in/victoria-fingal-927b9b91/"
                 target="_blank"
                 rel="noopener">
-                <svg viewBox="0 0 24 24" aria-hidden="true">
+                <svg
+                  class="w-5 h-5 fill-current"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true">
                   <path
                     d="M6.94 8.5V21H3.5V8.5h3.44ZM5.22 3a2.06 2.06 0 1 1 0 4.12 2.06 2.06 0 0 1 0-4.12ZM21 21h-3.43v-6.07c0-1.45-.03-3.3-2.01-3.3-2.02 0-2.33 1.58-2.33 3.2V21Z" />
                 </svg>
@@ -204,9 +274,10 @@
             </div>
           </div>
         </section>
-      </main>
-
-      <footer>© <span id="year"></span> Victoria Fingal</footer>
+      </div>
+      <footer class="py-10 text-center text-sm text-gray-500">
+        © <span id="year"></span> Victoria Fingal
+      </footer>
     </div>
 
     <script src="script.js"></script>
