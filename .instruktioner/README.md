@@ -9,9 +9,10 @@
    Öppna terminalen och kör:  
     `ssh victoriaf@192.168.1.125`
 
-3. Stå i hemkatalogen och kör sedan kommandot  
+3. **Kör uppdateringsskriptet**  
+   Stå i hemkatalogen och kör:
    `sudo ./uppdatera_victoriafingal.py`
 
-## Links
+## Länk
 
-[Länk till sidan:](https://victoriafingal.findersson.se/)
+[👉 Öppna sidan här](https://victoriafingal.findersson.se/)
