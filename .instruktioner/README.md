@@ -7,7 +7,7 @@
 
 2. **Logga in på servern**  
    Öppna terminalen och kör:  
-    `ssh victoriaf@192.168.1.125`
+   `ssh victoriaf@192.168.1.125`
 
 3. **Kör uppdateringsskriptet**  
    Stå i hemkatalogen och kör:  
