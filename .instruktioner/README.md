@@ -6,7 +6,8 @@
    Gör en Commit + Push till github, i VS-code.
 
 2. **Logga in på servern**  
-   Ta upp terminalen och logga in på servern (ssh victoriaf@192.168.1.125)
+   Öppna terminalen och kör:  
+    `ssh victoriaf@192.168.1.125`
 
 3. Stå i hemkatalogen och kör sedan kommandot  
    `sudo ./uppdatera_victoriafingal.py`
