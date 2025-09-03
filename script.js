@@ -48,4 +48,26 @@ const io = new IntersectionObserver(
   { rootMargin: "-30% 0px -60% 0px", threshold: 0 }
 );
 
-sections.forEach((s) => io.observe(s));
+function toggleCard(button) {
+  const article = button.closest(".project-card");
+  const content = article.querySelector(".accordion-content");
+  const icon = button.querySelector("svg");
+  const expanded = button.getAttribute("aria-expanded") === "true";
+
+  // Stäng andra
+  document.querySelectorAll("#projekt .project-card").forEach((a) => {
+    if (a !== article) {
+      const b = a.querySelector(".accordion-button");
+      const c = a.querySelector(".accordion-content");
+      const i = a.querySelector(".accordion-button svg");
+      if (b) b.setAttribute("aria-expanded", "false");
+      if (c) c.classList.add("hidden");
+      if (i) i.classList.remove("rotate-180");
+    }
+  });
+
+  // Växla aktuellt
+  button.setAttribute("aria-expanded", String(!expanded));
+  content.classList.toggle("hidden");
+  if (icon) icon.classList.toggle("rotate-180");
+}
