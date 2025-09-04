@@ -2,12 +2,19 @@
 document.getElementById("year").textContent = new Date().getFullYear();
 
 // Nav: toggle på mobil (Tailwind: toggla 'hidden' på #huvudnav)
-const btn = document.getElementById("navToggle");
-const nav = document.getElementById("huvudnav");
+const btn = document.getElementById("navToggle"); // Knappen som togglar menyn
+const nav = document.getElementById("huvudnav"); // Menyn som ska togglas
+const header = document.querySelector("header"); // För att ändra bakgrund vid öppen meny
 
 btn?.addEventListener("click", () => {
   const nowHidden = nav.classList.toggle("hidden"); // true = nyss dold
   btn.setAttribute("aria-expanded", String(!nowHidden));
+
+  // Gör header helt opak när menyn är öppen (bara under 768px)
+  if (window.matchMedia("(max-width: 767px)").matches) {
+    // NYTT
+    header.classList.toggle("is-open", !nowHidden); // NYTT
+  }
 });
 
 // Stäng menyn efter klick på en länk (bara på små skärmar)
@@ -16,6 +23,7 @@ document.querySelectorAll('#huvudnav a[href^="#"]').forEach((a) => {
     if (window.matchMedia("(max-width: 767px)").matches) {
       nav.classList.add("hidden");
       btn.setAttribute("aria-expanded", "false");
+      header.classList.remove("is-open"); // NYTT
     }
   });
 });
@@ -25,6 +33,18 @@ document.addEventListener("keydown", (e) => {
   if (e.key === "Escape" && !nav.classList.contains("hidden")) {
     nav.classList.add("hidden");
     btn.setAttribute("aria-expanded", "false");
+    header.classList.remove("is-open"); // NYTT
+  }
+});
+
+// (Valfritt) Om användaren roterar/ändrar storlek, återställ headern
+window.addEventListener("resize", () => {
+  // NYTT
+  if (!window.matchMedia("(max-width: 767px)").matches) {
+    // NYTT
+    header.classList.remove("is-open"); // NYTT
+    nav.classList.remove("hidden"); // desktop visar nav   // NYTT
+    btn.setAttribute("aria-expanded", "true"); // NYTT
   }
 });
 
