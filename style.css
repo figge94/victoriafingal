@@ -171,6 +171,7 @@ nav a:hover::after {
   position: relative;
   z-index: 0;
 }
+
 .card:hover {
   transform: translateY(-2px);
   box-shadow: var(--shadow);
@@ -182,4 +183,11 @@ nav a:hover::after {
   height: 1px;
   background: var(--border);
   margin: 0.5rem 0 0.25rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  ::selection {
+    background: #1f2937;
+    color: #e5e7eb;
+  } /* gray-800 / gray-200 */
 }
