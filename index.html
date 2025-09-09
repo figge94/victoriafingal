@@ -45,7 +45,7 @@
     class="bg-white text-gray-900 antialiased dark:bg-stone-950 dark:text-gray-100">
     <div class="mx-auto max-w-5xl">
       <header
-        class="bg-white/30 flex items-center justify-between py-6 px-5 dark:bg-stone-950/30">
+        class="relative z-40 bg-white/30 flex items-center justify-between py-6 px-5 dark:bg-stone-950/30">
         <p class="text-lg select-none">Victoria Fingal</p>
         <nav
           id="huvudnav"
@@ -184,7 +184,7 @@
                     React
                   </li>
                   <li
-                    class="px-3 py-2 text-xs bg-violet-100 dark:bg-gray-800 dark:text-gray-200">
+                    class="px-3 py-2 text-xs bg-gray-100 dark:bg-gray-800 dark:text-gray-200">
                     Angular
                   </li>
                   <li
@@ -496,52 +496,28 @@
 
     <div
       id="aboutModal"
-      class="fixed inset-0 z-50 hidden items-center justify-center bg-black/60 p-4"
+      class="fixed inset-0 z-[9999] hidden items-center justify-center bg-black/60 p-4"
       role="dialog"
       aria-modal="true"
       aria-labelledby="aboutTitle">
       <div
-        class="relative max-w-2xl w-full rounded-lg bg-white dark:bg-stone-950 p-6 shadow-4xl">
+        class="relative w-full max-w-2xl md:max-w-3xl bg-white dark:bg-stone-950 p-8 shadow-4xl max-h-[80vh] overflow-y-auto">
         <h2 id="aboutTitle" class="text-3xl font-semibold section-title">
           Vem är jag?
         </h2>
 
         <p class="mt-4 text-gray-700 dark:text-gray-300">
           Jag heter <strong>Victoria Fingal</strong> och är webbutvecklare med
-          en stark känsla för design och användarupplevelser. Jag älskar att
-          kombinera logik och kreativitet för att bygga webbplatser och appar
-          som är både snabba, tillgängliga och inspirerande.
-        </p>
-
-        <p class="mt-4 text-gray-700 dark:text-gray-300">
-          Min styrka ligger i att skapa moderna och prestandaoptimerade
-          lösningar där detaljerna gör skillnaden. Oavsett om det handlar om
-          struktur, färgsättning eller typografi ser jag till att helheten känns
-          genomtänkt och användarvänlig.
+          fokus på design, prestanda och användarvänlighet. Jag älskar att
+          kombinera logik och kreativitet för att bygga moderna och tillgängliga
+          webbplatser.
         </p>
 
         <p class="mt-4 text-gray-700 dark:text-gray-300">
           Utöver utveckling har jag ett stort intresse för
-          <strong>fotografering</strong>. Att kunna arbeta med både kod och bild
-          gör att jag kan erbjuda en helhet – från tekniskt starka webbplatser
-          till visuellt innehåll som lyfter designen. Jag tycker det är extra
-          kul när jag får chansen att kombinera dessa två områden i ett projekt.
-        </p>
-
-        <p class="mt-4 text-gray-700 dark:text-gray-300">
-          På fritiden inspireras jag ofta av estetik i vardagen, något som även
-          speglas i mitt arbete. För mig är det viktigt att inte bara skapa en
-          hemsida – utan en upplevelse som känns professionell, lättillgänglig
-          och levande.
-        </p>
-
-        <p class="mt-4 text-gray-700 dark:text-gray-300">
-          Vill du samarbeta eller veta mer om hur jag kan hjälpa dig?
-          <a
-            href="#kontakt"
-            class="text-fuchsia-600 dark:text-fuchsia-400 underline hover:no-underline">
-            Kontakta mig här </a
-          >.
+          <strong>fotografering</strong>, vilket ger mig en känsla för estetik
+          och bildspråk. Det är något jag gärna kombinerar med webbarbete för
+          att skapa en helhet där både teknik och visuella uttryck samspelar.
         </p>
 
         <button
