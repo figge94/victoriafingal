@@ -1,53 +1,63 @@
-// År i footer
+// ===== Footer-år =====
 document.getElementById("year").textContent = new Date().getFullYear();
 
-// Nav: toggle på mobil (Tailwind: toggla 'hidden' på #huvudnav)
-const btn = document.getElementById("navToggle"); // Knappen som togglar menyn
-const nav = document.getElementById("huvudnav"); // Menyn som ska togglas
-const header = document.querySelector("header"); // För att ändra bakgrund vid öppen meny
+// ===== Element =====
+const btn = document.getElementById("navToggle");
+const nav = document.getElementById("huvudnav");
+const header = document.querySelector("header");
 
+// ===== Helpers =====
+const isDesktop = () => !window.matchMedia("(max-width: 767px)").matches;
+
+// Samlad hantering av meny-tillstånd (a11y + UI)
+function setMenuState(isOpen) {
+  nav.classList.toggle("hidden", !isOpen);
+  btn?.setAttribute("aria-expanded", String(isOpen));
+  header.classList.toggle("is-open", isOpen);
+  nav.toggleAttribute("inert", !isOpen); // gör otillgänglig när stängd
+  nav.setAttribute("aria-hidden", String(!isOpen));
+  document.documentElement.classList.toggle(
+    "overflow-hidden",
+    isOpen && !isDesktop()
+  ); // lås scroll på mobil
+}
+
+// ===== Init =====
+setMenuState(isDesktop()); // desktop: öppen, mobil: stängd
+
+// ===== Toggle-knapp =====
 btn?.addEventListener("click", () => {
-  const nowHidden = nav.classList.toggle("hidden"); // true = nyss dold
-  btn.setAttribute("aria-expanded", String(!nowHidden));
-
-  // Gör header helt opak när menyn är öppen (bara under 768px)
-  if (window.matchMedia("(max-width: 767px)").matches) {
-    // NYTT
-    header.classList.toggle("is-open", !nowHidden); // NYTT
-  }
+  const willOpen = nav.classList.contains("hidden"); // om hidden nu -> ska öppnas
+  setMenuState(willOpen);
 });
 
-// Stäng menyn efter klick på en länk (bara på små skärmar)
+// ===== Stäng på länkklick (bara mobil) =====
 document.querySelectorAll('#huvudnav a[href^="#"]').forEach((a) => {
   a.addEventListener("click", () => {
-    if (window.matchMedia("(max-width: 767px)").matches) {
-      nav.classList.add("hidden");
-      btn.setAttribute("aria-expanded", "false");
-      header.classList.remove("is-open"); // NYTT
-    }
+    if (!isDesktop()) setMenuState(false);
   });
 });
 
-// Stäng på Escape (om öppen)
+// ===== Stäng på Escape =====
 document.addEventListener("keydown", (e) => {
-  if (e.key === "Escape" && !nav.classList.contains("hidden")) {
-    nav.classList.add("hidden");
-    btn.setAttribute("aria-expanded", "false");
-    header.classList.remove("is-open"); // NYTT
+  if (e.key === "Escape" && btn?.getAttribute("aria-expanded") === "true") {
+    setMenuState(false);
   }
 });
 
-// (Valfritt) Om användaren roterar/ändrar storlek, återställ headern
+// ===== Klick utanför header stänger (bara mobil) =====
+document.addEventListener("click", (e) => {
+  if (isDesktop()) return;
+  const open = btn?.getAttribute("aria-expanded") === "true";
+  if (open && header && !header.contains(e.target)) setMenuState(false);
+});
+
+// ===== Resize: växla tillstånd enligt breakpoint =====
 window.addEventListener("resize", () => {
-  // NYTT
-  if (!window.matchMedia("(max-width: 767px)").matches) {
-    // NYTT
-    header.classList.remove("is-open"); // NYTT
-    nav.classList.remove("hidden"); // desktop visar nav   // NYTT
-    btn.setAttribute("aria-expanded", "true"); // NYTT
-  }
+  setMenuState(isDesktop());
 });
 
+// ===== Active-länk via IntersectionObserver =====
 const links = [...document.querySelectorAll('#huvudnav a[href^="#"]')];
 const sections = links
   .map((a) => document.querySelector(a.getAttribute("href")))
@@ -60,34 +70,67 @@ const io = new IntersectionObserver(
       const link = links.find((a) => a.getAttribute("href") === id);
       if (!link) return;
       if (entry.isIntersecting) {
-        links.forEach((l) => l.classList.remove("text-black", "font-medium"));
-        link.classList.add("text-black", "font-medium");
+        links.forEach((l) => l.removeAttribute("aria-current"));
+        link.setAttribute("aria-current", "page");
       }
     });
   },
   { rootMargin: "-30% 0px -60% 0px", threshold: 0 }
 );
 
-function toggleCard(button) {
+sections.forEach((s) => io.observe(s));
+
+// ===== Projekt-accordion =====
+window.toggleCard = function (button) {
   const article = button.closest(".project-card");
   const content = article.querySelector(".accordion-content");
   const icon = button.querySelector("svg");
   const expanded = button.getAttribute("aria-expanded") === "true";
 
-  // Stäng andra
+  // Stäng alla andra
   document.querySelectorAll("#projekt .project-card").forEach((a) => {
     if (a !== article) {
       const b = a.querySelector(".accordion-button");
       const c = a.querySelector(".accordion-content");
       const i = a.querySelector(".accordion-button svg");
-      if (b) b.setAttribute("aria-expanded", "false");
-      if (c) c.classList.add("hidden");
-      if (i) i.classList.remove("rotate-180");
+      b?.setAttribute("aria-expanded", "false");
+      c?.classList.add("hidden");
+      i?.classList.remove("rotate-180");
     }
   });
 
-  // Växla aktuellt
+  // Växla aktuell
   button.setAttribute("aria-expanded", String(!expanded));
   content.classList.toggle("hidden");
-  if (icon) icon.classList.toggle("rotate-180");
-}
+  icon?.classList.toggle("rotate-180");
+};
+
+const openAbout = document.getElementById("openAbout");
+const closeAbout = document.getElementById("closeAbout");
+const aboutModal = document.getElementById("aboutModal");
+
+openAbout?.addEventListener("click", () => {
+  aboutModal.classList.remove("hidden", "opacity-0");
+  aboutModal.classList.add("flex");
+  document.body.classList.add("overflow-hidden"); // lås scroll
+});
+
+closeAbout?.addEventListener("click", () => {
+  aboutModal.classList.add("hidden");
+  aboutModal.classList.remove("flex");
+  document.body.classList.remove("overflow-hidden");
+});
+
+// stäng på ESC
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape" && aboutModal.classList.contains("flex")) {
+    closeAbout.click();
+  }
+});
+
+// stäng om man klickar utanför modalen
+aboutModal?.addEventListener("click", (e) => {
+  if (e.target === aboutModal) {
+    closeAbout.click();
+  }
+});

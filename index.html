@@ -8,7 +8,13 @@
       name="description"
       content="Portfölj för Victoria Fingal: webbutvecklare och designer i Sverige. Snabba, tillgängliga och användarvänliga webbupplevelser." />
     <link rel="icon" href="/favicon.ico" />
+    <link
+      rel="preload"
+      as="image"
+      href="/images/pink-flowers.jpg"
+      imagesrcset="/images/pink-flowers.jpg 1x" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="canonical" href="https://victoriafingal.findersson.se/" />
     <meta property="og:title" content="Victoria Fingal – Webbutvecklare" />
     <meta
       property="og:description"
@@ -36,38 +42,39 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body
-    class="bg-white text-gray-900 antialiased dark:bg-gray-900 dark:text-gray-100">
+    class="bg-white text-gray-900 antialiased dark:bg-stone-950 dark:text-gray-100">
     <div class="mx-auto max-w-5xl">
-      <header class="flex items-center justify-between py-6 px-5">
-        <strong class="text-lg">Victoria Fingal</strong>
+      <header
+        class="bg-white/30 flex items-center justify-between py-6 px-5 dark:bg-stone-950/30">
+        <p class="text-lg select-none">Victoria Fingal</p>
         <nav
           id="huvudnav"
-          class="hidden md:flex gap-6 bg-white dark:bg-gray-900"
+          class="hidden md:flex gap-6 bg-white/90 dark:bg-gray/30 dark:bg-transparent"
           aria-label="Huvudnavigering">
           <a
             href="#om"
-            class="text-gray-900 dark:text-gray-100 hover:text-blue-600 dark:hover:text-emerald-400"
+            class="text-stone-950 dark:text-stone-100 hover:text-white dark:hover:text-white"
             >Om</a
           >
           <a
             href="#projekt"
-            class="text-gray-900 dark:text-gray-100 hover:text-blue-600 dark:hover:text-emerald-400"
+            class="text-stone-950 dark:text-stone-100 hover:text-white dark:hover:text-white"
             >Projekt</a
           >
           <a
             href="#kompetens"
-            class="text-gray-900 dark:text-gray-100 hover:text-blue-600 dark:hover:text-emerald-400"
+            class="text-stone-950 dark:text-stone-100 hover:text-white dark:hover:text-white"
             >Kompetens</a
           >
           <a
             href="#kontakt"
-            class="text-gray-900 dark:text-gray-100 hover:text-blue-600 dark:hover:text-emerald-400"
+            class="text-stone-950 dark:text-stone-100 hover:text-white dark:hover:text-white"
             >Kontakt</a
           >
         </nav>
         <button
           id="navToggle"
-          class="md:hidden text-2xl p-3 hover:bg-sky-100 dark:hover:bg-gray-800 focus:outline-none focus:ring focus:ring-sky-300 dark:focus:ring-offset-gray-900"
+          class="md:hidden text-2xl p-3 hover:bg-fuchsia-100 dark:hover:bg-gray-800 focus:outline-1 focus:ring focus:ring-fuchsia-300 dark:focus:ring-offset-gray-900"
           aria-label="Öppna meny"
           aria-expanded="false"
           aria-controls="huvudnav">
@@ -76,42 +83,63 @@
       </header>
       <div class="px-4">
         <!-- Hero -->
-        <section id="om" class="py-16">
-          <h1 class="text-3xl md:text-5xl font-semibold tracking-tight">
+        <section class="py-16 mx-auto text-center">
+          <h1 class="text-3xl md:text-6xl font-semibold tracking-tight">
             Webbutvecklare & designer
           </h1>
-          <p class="mt-4 text-lg text-gray-600 dark:text-gray-300 max-w-2xl">
-            Skapar snabba, tillgängliga och användarvänliga webbupplevelser med
-            fokus på ren kod, god UX och mätbar prestanda.
-          </p>
-          <a
-            class="inline-block mt-6 rounded-lg px-5 py-2 bg-gradient-to-r from-blue-600 to-emerald-500 text-white border-transparent hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-600 dark:focus:ring-offset-gray-900"
-            href="#kontakt"
-            >Kontakta mig</a
-          >
+          <div
+            class="bg-[url(/images/pink-flowers.jpg)] bg-cover bg-center mt-8 p-9 shadow-sm max-w-full dark:bg-opacity-15">
+            <div
+              class="backdrop-blur-md bg-white/80 dark:bg-gray-950/30 p-8 drop-shadow-2xl">
+              <p class="mt-4 p-2 text-lg text-gray-900 dark:text-gray-50">
+                Skapar snabba, tillgängliga och användarvänliga webbupplevelser
+                med fokus på ren kod, god UX och mätbar prestanda.
+              </p>
+              <p
+                class="mt-4 text-lg text-gray-900 dark:text-gray-50 text-center">
+                Vill du ha hjälp med din hemsida eller app? Tveka inte att höra
+                av dig!
+              </p>
+              <a
+                class="inline-block mt-6 px-5 py-4 bg-black text-white border-transparent hover:opacity-80 focus-visible:outline-1 focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-fuchsia-600 dark:focus-visible:ring-offset-fuchsia-950"
+                href="#kontakt">
+                Kontakta mig
+              </a>
+            </div>
+          </div>
         </section>
 
         <!-- Om mig -->
-        <section class="py-12">
+        <section
+          id="om"
+          class="py-12 flex flex-col md:flex-row md:items-start md:gap-10">
           <div class="mt-6 max-w-2xl space-y-4">
             <h2 class="text-2xl font-semibold section-title">Om mig</h2>
-            <p class="mt-4 text-lg text-gray-600 dark:text-gray-300 max-w-2xl">
-              Jag heter Victoria Fingal och bygger moderna, prestandaoptimerade
-              webbsidor och appar. Jag trivs i gränslandet mellan teknik och
-              design och brinner för tillgänglighet, responsiv design och smarta
-              användarupplevelser.
+            <p class="mt-4 text-lg text-gray-600 dark:text-gray-100 max-w-2xl">
+              Jag heter Victoria Fingal och arbetar med webbutveckling och
+              design. Jag brinner för att skapa moderna, snabba och
+              användarvänliga webbupplevelser där teknik möter kreativitet.
             </p>
-            <p class="mt-4 text-lg text-gray-600 dark:text-gray-300 max-w-2xl">
+            <p class="mt-4 text-lg text-gray-600 dark:text-gray-100 max-w-2xl">
               Utöver utveckling har jag ett stort intresse för
-              <strong>fotografering</strong>, vilket bidrar till min känsla för
-              estetik och visuella detaljer i design.
+              <strong>fotografering</strong>, något jag gärna kombinerar med
+              webbarbete för att skapa en helhet där både design och
+              bildmaterial håller hög kvalitet.
             </p>
+            <p class="mt-4 text-lg text-gray-600 dark:text-gray-100 max-w-2xl">
+              Vill du veta mer om min bakgrund och vad jag kan erbjuda?
+            </p>
+            <button
+              id="openAbout"
+              class="inline-block mt-6 px-5 py-4 bg-stone-950 dark:bg-white text-white dark:text-black border-transparent hover:opacity-80 focus-visible:outline-1 focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-fuchsia-600 dark:focus-visible:ring-offset-fuchsia-950">
+              Läs mer
+            </button>
           </div>
         </section>
 
         <!-- Projekt -->
         <section id="projekt" class="py-12">
-          <h2 class="text-2xl font-semibold section-title">Projekt</h2>
+          <h2 class="text-3xl font-semibold section-title">Projekt</h2>
 
           <!-- Underrubrik -->
           <h3 class="text-xl font-semibold mt-6">Skolprojekt</h3>
@@ -119,10 +147,10 @@
           <div class="mt-6 grid gap-6 sm:grid-cols-2 items-start">
             <!-- CleanSpace -->
             <article
-              class="card project project-card rounded-xl border dark:border-gray-700 shadow-sm self-start dark:bg-gray-900/50">
+              class="card project project-card border shadow-xl/20 dark:border-gray-800 shadow-md self-start dark:bg-gray-900/30 p-4 flex flex-col">
               <button
                 type="button"
-                class="accordion-button w-full flex justify-between items-center px-6 py-4 text-left font-medium hover:bg-gray-50 dark:hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-offset-2 dark:focus:ring-offset-gray-900"
+                class="accordion-button w-full flex justify-between items-center px-6 py-4 text-left font-medium focus:outline-3 focus:ring-2 focus:ring-fuchsia-400 focus:ring-offset-1 dark:focus:ring-offset-gray-900"
                 aria-expanded="false"
                 onclick="toggleCard(this)">
                 <span>CleanSpace</span>
@@ -139,7 +167,7 @@
                     d="M19 9l-7 7-7-7" />
                 </svg>
               </button>
-              <div class="accordion-content px-6 pb-6 hidden">
+              <div class="accordion-content py-6 pb-6 hidden">
                 <p class="mt-3 text-gray-700 dark:text-gray-300">
                   Först byggt i <strong>React</strong> och
                   <strong>Angular</strong> som skoluppgift med
@@ -152,35 +180,35 @@
                 </p>
                 <ul class="mt-4 flex flex-wrap gap-2" aria-label="Tekniker">
                   <li
-                    class="px-2 py-1 text-xs rounded bg-gray-100 dark:bg-gray-800 dark:text-gray-200">
+                    class="px-3 py-2 text-xs bg-gray-100 dark:bg-gray-800 dark:text-gray-200">
                     React
                   </li>
                   <li
-                    class="px-2 py-1 text-xs rounded bg-gray-100 dark:bg-gray-800 dark:text-gray-200">
+                    class="px-3 py-2 text-xs bg-violet-100 dark:bg-gray-800 dark:text-gray-200">
                     Angular
                   </li>
                   <li
-                    class="px-2 py-1 text-xs rounded bg-gray-100 dark:bg-gray-800 dark:text-gray-200">
+                    class="px-3 py-2 text-xs bg-gray-100 dark:bg-gray-800 dark:text-gray-200">
                     PWA
                   </li>
                   <li
-                    class="px-2 py-1 text-xs rounded bg-gray-100 dark:bg-gray-800 dark:text-gray-200">
+                    class="px-3 py-2 text-xs bg-gray-100 dark:bg-gray-800 dark:text-gray-200">
                     Express
                   </li>
                   <li
-                    class="px-2 py-1 text-xs rounded bg-gray-100 dark:bg-gray-800 dark:text-gray-200">
+                    class="px-3 py-2 text-xs bg-gray-100 dark:bg-gray-800 dark:text-gray-200">
                     MongoDB
                   </li>
                   <li
-                    class="px-2 py-1 text-xs rounded bg-gray-100 dark:bg-gray-800 dark:text-gray-200">
+                    class="px-3 py-2 text-xs bg-gray-100 dark:bg-gray-800 dark:text-gray-200">
                     React Native
                   </li>
                   <li
-                    class="px-2 py-1 text-xs rounded bg-gray-100 dark:bg-gray-800 dark:text-gray-200">
+                    class="px-3 py-2 text-xs bg-gray-100 dark:bg-gray-800 dark:text-gray-200">
                     Android Studio
                   </li>
                   <li
-                    class="px-2 py-1 text-xs rounded bg-gray-100 dark:bg-gray-800 dark:text-gray-200">
+                    class="px-3 py-2 text-xs bg-gray-100 dark:bg-gray-800 dark:text-gray-200">
                     Expo
                   </li>
                 </ul>
@@ -189,7 +217,7 @@
                     href="https://github.com/figge94/CleanSpace"
                     target="_blank"
                     rel="noopener"
-                    class="inline-flex items-center gap-2 rounded-lg px-4 py-2 border border-gray-300 hover:bg-gray-50">
+                    class="inline-flex items-center gap-2 rounded-lg px-4 py-2 border border-gray-300 hover:bg-gray-50 hover:dark:bg-gray-800">
                     GitHub
                   </a>
                 </div>
@@ -198,10 +226,10 @@
 
             <!-- Klensmed Birgitta -->
             <article
-              class="card project project-card rounded-xl border dark:border-gray-700 shadow-sm self-start dark:bg-gray-900/50">
+              class="card project project-card border shadow-xl/20 dark:border-gray-800 shadow-md self-start dark:bg-gray-900/30 p-4 flex flex-col">
               <button
                 type="button"
-                class="accordion-button w-full flex justify-between items-center px-6 py-4 text-left font-medium hover:bg-gray-50 dark:hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-offset-2 dark:focus:ring-offset-gray-900"
+                class="accordion-button w-full flex justify-between items-center px-6 py-4 text-left font-medium focus:outline-3 focus:ring-2 focus:ring-fuchsia-400 focus:ring-offset-1 dark:focus:ring-offset-gray-900"
                 aria-expanded="false"
                 onclick="toggleCard(this)">
                 <span>Klensmed Birgitta</span>
@@ -227,19 +255,23 @@
                 </p>
                 <ul class="mt-4 flex flex-wrap gap-2" aria-label="Tekniker">
                   <li
-                    class="px-2 py-1 text-xs rounded bg-gray-100 dark:bg-gray-800 dark:text-gray-200">
-                    HTML • CSS
+                    class="px-3 py-2 text-xs bg-gray-100 dark:bg-gray-800 dark:text-gray-200">
+                    HTML
                   </li>
                   <li
-                    class="px-2 py-1 text-xs rounded bg-gray-100 dark:bg-gray-800 dark:text-gray-200">
+                    class="px-3 py-2 text-xs bg-gray-100 dark:bg-gray-800 dark:text-gray-200">
+                    CSS
+                  </li>
+                  <li
+                    class="px-3 py-2 text-xs bg-gray-100 dark:bg-gray-800 dark:text-gray-200">
                     JavaScript
                   </li>
                   <li
-                    class="px-2 py-1 text-xs rounded bg-gray-100 dark:bg-gray-800 dark:text-gray-200">
+                    class="px-3 py-2 text-xs bg-gray-100 dark:bg-gray-800 dark:text-gray-200">
                     SEO
                   </li>
                   <li
-                    class="px-2 py-1 text-xs rounded bg-gray-100 dark:bg-gray-800 dark:text-gray-200">
+                    class="px-3 py-2 text-xs bg-gray-100 dark:bg-gray-800 dark:text-gray-200">
                     Responsiv design
                   </li>
                 </ul>
@@ -259,32 +291,56 @@
 
         <!-- Kompetens (kompakt card) -->
         <section id="kompetens" class="py-12">
-          <h2 class="text-2xl font-semibold section-title">Kompetens</h2>
+          <h2 class="text-3xl font-semibold section-title">Kompetens</h2>
 
           <div
-            class="card mt-6 space-y-6 rounded-xl border dark:border-gray-700 p-6 dark:bg-gray-900/50">
+            class="card mt-6 space-y-6 border shadow-md dark:border-gray-800 p-6 dark:bg-gray-900/30">
             <div>
               <h3 class="font-medium">Frontend</h3>
               <div class="mt-2 flex flex-wrap gap-2">
                 <span
-                  class="px-2 py-1 text-xs rounded bg-gray-100 dark:bg-gray-800 dark:text-gray-200"
-                  >HTML • CSS</span
+                  class="px-3 py-2 text-xs bg-gray-100 dark:bg-gray-800 dark:text-gray-200"
+                  >HTML</span
                 >
                 <span
-                  class="px-2 py-1 text-xs rounded bg-gray-100 dark:bg-gray-800 dark:text-gray-200"
-                  >JavaScript • TypeScript</span
+                  class="px-3 py-2 text-xs bg-gray-100 dark:bg-gray-800 dark:text-gray-200"
+                  >CSS</span
                 >
                 <span
-                  class="px-2 py-1 text-xs rounded bg-gray-100 dark:bg-gray-800 dark:text-gray-200"
-                  >Angular • Vue • React</span
+                  class="px-3 py-2 text-xs bg-gray-100 dark:bg-gray-800 dark:text-gray-200"
+                  >JavaScript</span
                 >
                 <span
-                  class="px-2 py-1 text-xs rounded bg-gray-100 dark:bg-gray-800 dark:text-gray-200"
-                  >Tailwind • Bootstrap</span
+                  class="px-3 py-2 text-xs bg-gray-100 dark:bg-gray-800 dark:text-gray-200"
+                  >TypeScript</span
                 >
                 <span
-                  class="px-2 py-1 text-xs rounded bg-gray-100 dark:bg-gray-800 dark:text-gray-200"
-                  >Responsiv design • SEO</span
+                  class="px-3 py-2 text-xs bg-gray-100 dark:bg-gray-800 dark:text-gray-200"
+                  >Angular</span
+                >
+                <span
+                  class="px-3 py-2 text-xs bg-gray-100 dark:bg-gray-800 dark:text-gray-200"
+                  >Vue</span
+                >
+                <span
+                  class="px-3 py-2 text-xs bg-gray-100 dark:bg-gray-800 dark:text-gray-200"
+                  >React</span
+                >
+                <span
+                  class="px-3 py-2 text-xs bg-gray-100 dark:bg-gray-800 dark:text-gray-200"
+                  >Tailwind</span
+                >
+                <span
+                  class="px-3 py-2 text-xs bg-gray-100 dark:bg-gray-800 dark:text-gray-200"
+                  >Bootstrap</span
+                >
+                <span
+                  class="px-3 py-2 text-xs bg-gray-100 dark:bg-gray-800 dark:text-gray-200"
+                  >Responsiv design</span
+                >
+                <span
+                  class="px-3 py-2 text-xs bg-gray-100 dark:bg-gray-800 dark:text-gray-200"
+                  >SEO</span
                 >
               </div>
             </div>
@@ -293,19 +349,19 @@
               <h3 class="font-medium">Backend & API:er</h3>
               <div class="mt-2 flex flex-wrap gap-2">
                 <span
-                  class="px-2 py-1 text-xs rounded bg-gray-100 dark:bg-gray-800 dark:text-gray-200"
+                  class="px-3 py-2 text-xs bg-gray-100 dark:bg-gray-800 dark:text-gray-200"
                   >ASP.NET Core • PHP</span
                 >
                 <span
-                  class="px-2 py-1 text-xs rounded bg-gray-100 dark:bg-gray-800 dark:text-gray-200"
+                  class="px-3 py-2 text-xs bg-gray-100 dark:bg-gray-800 dark:text-gray-200"
                   >Node.js • Express</span
                 >
                 <span
-                  class="px-2 py-1 text-xs rounded bg-gray-100 dark:bg-gray-800 dark:text-gray-200"
+                  class="px-3 py-2 text-xs bg-gray-100 dark:bg-gray-800 dark:text-gray-200"
                   >REST • JWT</span
                 >
                 <span
-                  class="px-2 py-1 text-xs rounded bg-gray-100 dark:bg-gray-800 dark:text-gray-200"
+                  class="px-3 py-2 text-xs bg-gray-100 dark:bg-gray-800 dark:text-gray-200"
                   >MongoDB • SQL</span
                 >
               </div>
@@ -314,27 +370,27 @@
               <h3 class="font-medium">Verktyg & miljöer</h3>
               <div class="mt-2 flex flex-wrap gap-2">
                 <span
-                  class="px-2 py-1 text-xs rounded bg-gray-100 dark:bg-gray-800 dark:text-gray-200"
+                  class="px-3 py-2 text-xs bg-gray-100 dark:bg-gray-800 dark:text-gray-200"
                   >GitHub</span
                 >
                 <span
-                  class="px-2 py-1 text-xs rounded bg-gray-100 dark:bg-gray-800 dark:text-gray-200"
+                  class="px-3 py-2 text-xs bg-gray-100 dark:bg-gray-800 dark:text-gray-200"
                   >Terminal (Linux)</span
                 >
                 <span
-                  class="px-2 py-1 text-xs rounded bg-gray-100 dark:bg-gray-800 dark:text-gray-200"
+                  class="px-3 py-2 text-xs bg-gray-100 dark:bg-gray-800 dark:text-gray-200"
                   >VS Code</span
                 >
                 <span
-                  class="px-2 py-1 text-xs rounded bg-gray-100 dark:bg-gray-800 dark:text-gray-200"
+                  class="px-3 py-2 text-xs bg-gray-100 dark:bg-gray-800 dark:text-gray-200"
                   >Android Studio</span
                 >
                 <span
-                  class="px-2 py-1 text-xs rounded bg-gray-100 dark:bg-gray-800 dark:text-gray-200"
+                  class="px-3 py-2 text-xs bg-gray-100 dark:bg-gray-800 dark:text-gray-200"
                   >VirtualBox</span
                 >
                 <span
-                  class="px-2 py-1 text-xs rounded bg-gray-100 dark:bg-gray-800 dark:text-gray-200"
+                  class="px-3 py-2 text-xs bg-gray-100 dark:bg-gray-800 dark:text-gray-200"
                   >WordPress</span
                 >
               </div>
@@ -343,11 +399,11 @@
               <h3 class="font-medium">Design & samarbete</h3>
               <div class="mt-2 flex flex-wrap gap-2">
                 <span
-                  class="px-2 py-1 text-xs rounded bg-gray-100 dark:bg-gray-800 dark:text-gray-200"
+                  class="px-3 py-2 text-xs bg-gray-100 dark:bg-gray-800 dark:text-gray-200"
                   >Figma</span
                 >
                 <span
-                  class="px-2 py-1 text-xs rounded bg-gray-100 dark:bg-gray-800 dark:text-gray-200"
+                  class="px-3 py-2 text-xs bg-gray-100 dark:bg-gray-800 dark:text-gray-200"
                   >Mural</span
                 >
               </div>
@@ -356,11 +412,11 @@
               <h3 class="font-medium">Språk</h3>
               <div class="mt-2 flex flex-wrap gap-2">
                 <span
-                  class="px-2 py-1 text-xs rounded bg-gray-100 dark:bg-gray-800 dark:text-gray-200"
+                  class="px-3 py-2 text-xs bg-gray-100 dark:bg-gray-800 dark:text-gray-200"
                   >Svenska (modersmål)</span
                 >
                 <span
-                  class="px-2 py-1 text-xs rounded bg-gray-100 dark:bg-gray-800 dark:text-gray-200"
+                  class="px-3 py-2 text-xs bg-gray-100 dark:bg-gray-800 dark:text-gray-200"
                   >Engelska (flytande)</span
                 >
               </div>
@@ -369,11 +425,11 @@
         </section>
 
         <!-- Kontakt -->
-        <section id="kontakt" class="py-12">
-          <h2 class="text-2xl font-semibold section-title">Kontakt</h2>
+        <section id="kontakt" class="py-12 bg-white dark:bg-stone-950">
+          <h2 class="text-3xl font-semibold section-title">Kontakt</h2>
 
           <div
-            class="card mt-6 grid gap-6 md:grid-cols-2 rounded-xl border dark:border-gray-700 p-6 dark:bg-gray-900/50">
+            class="card shadow-md mt-6 grid gap-6 bg-white md:grid-cols-2 border border-gray-200 dark:border-gray-800 p-6 dark:bg-gray-900/30">
             <div>
               <h3 class="font-medium">Hör av dig</h3>
               <p class="mt-1 text-gray-700 dark:text-gray-300">
@@ -385,7 +441,7 @@
               class="flex flex-col gap-3 md:flex-row md:justify-end md:gap-2">
               <!-- E-post -->
               <a
-                class="inline-flex items-center gap-2 rounded-lg px-4 py-2 bg-gradient-to-r from-blue-600 to-emerald-500 text-white border-transparent hover:opacity-90"
+                class="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-t from-fuchsia-500 to-fuchsia-300 text-white border-transparent hover:opacity-80"
                 href="mailto:victoriafingal@hotmail.se"
                 aria-label="Skicka e-post">
                 <svg
@@ -400,7 +456,7 @@
 
               <!-- GitHub (mörk bakgrund + vit ikon/text) -->
               <a
-                class="inline-flex items-center gap-2 rounded-lg border px-4 py-2 bg-gray-900 text-white border-gray-900 dark:border-gray-700 hover:bg-gray-800"
+                class="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-b from-gray-500 to-gray-900 text-white dark:border-gray-700 hover:opacity-80"
                 href="https://github.com/figge94"
                 target="_blank"
                 rel="noopener">
@@ -416,12 +472,12 @@
 
               <!-- LinkedIn (blå bakgrund + vit ikon/text) -->
               <a
-                class="inline-flex items-center gap-2 rounded-lg border px-4 py-2 bg-[#0a66c2] text-white border-[#0a66c2] dark:border-[#0a66c2]"
+                class="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-b from-blue-500 to-blue-900 text-white dark:border-[#0a66c2] hover:opacity-80"
                 href="https://www.linkedin.com/in/victoria-fingal-927b9b91/"
                 target="_blank"
                 rel="noopener">
                 <svg
-                  class="w-5 h-5 fill-current"
+                  class="size-5 fill-white"
                   viewBox="0 0 24 24"
                   aria-hidden="true">
                   <path
@@ -436,6 +492,65 @@
       <footer class="py-10 text-center text-sm text-gray-500">
         © <span id="year"></span> Victoria Fingal
       </footer>
+    </div>
+
+    <div
+      id="aboutModal"
+      class="fixed inset-0 z-50 hidden items-center justify-center bg-black/60 p-4"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="aboutTitle">
+      <div
+        class="relative max-w-2xl w-full rounded-lg bg-white dark:bg-stone-950 p-6 shadow-4xl">
+        <h2 id="aboutTitle" class="text-3xl font-semibold section-title">
+          Vem är jag?
+        </h2>
+
+        <p class="mt-4 text-gray-700 dark:text-gray-300">
+          Jag heter <strong>Victoria Fingal</strong> och är webbutvecklare med
+          en stark känsla för design och användarupplevelser. Jag älskar att
+          kombinera logik och kreativitet för att bygga webbplatser och appar
+          som är både snabba, tillgängliga och inspirerande.
+        </p>
+
+        <p class="mt-4 text-gray-700 dark:text-gray-300">
+          Min styrka ligger i att skapa moderna och prestandaoptimerade
+          lösningar där detaljerna gör skillnaden. Oavsett om det handlar om
+          struktur, färgsättning eller typografi ser jag till att helheten känns
+          genomtänkt och användarvänlig.
+        </p>
+
+        <p class="mt-4 text-gray-700 dark:text-gray-300">
+          Utöver utveckling har jag ett stort intresse för
+          <strong>fotografering</strong>. Att kunna arbeta med både kod och bild
+          gör att jag kan erbjuda en helhet – från tekniskt starka webbplatser
+          till visuellt innehåll som lyfter designen. Jag tycker det är extra
+          kul när jag får chansen att kombinera dessa två områden i ett projekt.
+        </p>
+
+        <p class="mt-4 text-gray-700 dark:text-gray-300">
+          På fritiden inspireras jag ofta av estetik i vardagen, något som även
+          speglas i mitt arbete. För mig är det viktigt att inte bara skapa en
+          hemsida – utan en upplevelse som känns professionell, lättillgänglig
+          och levande.
+        </p>
+
+        <p class="mt-4 text-gray-700 dark:text-gray-300">
+          Vill du samarbeta eller veta mer om hur jag kan hjälpa dig?
+          <a
+            href="#kontakt"
+            class="text-fuchsia-600 dark:text-fuchsia-400 underline hover:no-underline">
+            Kontakta mig här </a
+          >.
+        </p>
+
+        <button
+          id="closeAbout"
+          class="absolute top-3 right-3 text-gray-500 hover:text-black dark:hover:text-white focus-visible:ring focus-visible:ring-fuchsia-600 rounded-full p-2"
+          aria-label="Stäng">
+          ✕
+        </button>
+      </div>
     </div>
 
     <script src="script.js"></script>
